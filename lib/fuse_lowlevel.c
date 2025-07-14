@@ -2783,6 +2783,8 @@ _do_init(fuse_req_t req, const fuse_ino_t nodeid, const void *op_in,
 		outargflags |= FUSE_OVER_IO_URING;
 		enable_io_uring = true;
 	}
+	if (se->conn.want_ext & FUSE_CAP_ALLOW_IDMAP)
+		outargflags |= FUSE_ALLOW_IDMAP;
 
 	if ((inargflags & FUSE_REQUEST_TIMEOUT) && se->conn.request_timeout) {
 		outargflags |= FUSE_REQUEST_TIMEOUT;
