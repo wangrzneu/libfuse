@@ -35,7 +35,10 @@
 
 int main(void)
 {
-	static const char hex_map[FSEL_FILES] = "0123456789ABCDEF";
+	static const char hex_map[FSEL_FILES] = {
+	'0', '1', '2', '3', '4', '5', '6', '7',
+	'8', '9', 'A', 'B', 'C', 'D', 'E', 'F'
+	};
 	int fds[FSEL_FILES];
 	int i, nfds, tries;
 
