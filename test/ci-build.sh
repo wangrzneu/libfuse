@@ -33,14 +33,11 @@ export CC
 non_sanitized_build()
 (
     echo "Standard build (without sanitizers)"
-    for CC in gcc gcc-9 gcc-10 clang clang-21; do
+    for CC in gcc gcc-9 gcc-10 clang; do
         echo "=== Building with ${CC} ==="
         mkdir build-${CC}; pushd build-${CC}
         if [ "${CC}" == "clang" ]; then
             export CXX="clang++"
-            export TEST_WITH_VALGRIND=false
-        elif [ "${CC}" == "clang-21" ]; then
-            export CXX="clang++-21"
             export TEST_WITH_VALGRIND=false
         else
             unset CXX
